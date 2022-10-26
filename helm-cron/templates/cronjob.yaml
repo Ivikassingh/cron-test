@@ -15,6 +15,7 @@ spec:
       template:
         metadata:
         spec:
+          imagePullSecrets: {{$job.imagePullSecret}}
           containers:
           - image: "{{ $job.image.repository }}:{{ $job.image.tag }}"
             imagePullPolicy: {{ $job.image.imagePullPolicy }}
