@@ -1,7 +1,6 @@
 {{- $chart_name := .Chart.Name }}
 {{- $chart_version := .Chart.Version | replace "+" "_" }}
 {{- $release_name := .Release.Name }}
-
 {{- range $job := .Values.jobs }}
 ---
 apiVersion: batch/v1
