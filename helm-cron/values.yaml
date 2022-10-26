@@ -6,7 +6,7 @@ jobs:
       repository: hello-world
       tag: latest
       imagePullPolicy: IfNotPresent
-    imagePullSecret: gitlab-registry
+      secrets: gitlab-regsitry
     schedule: "* * * * *"
     restartPolicy: OnFailure
 
