@@ -27,8 +27,6 @@ spec:
             env:
 {{ toYaml . | indent 12 }}
             {{- end }}
-            {{- with $job.envFrom }}
-
           restartPolicy: {{ $job.restartPolicy }}
           {{- with $job.volumes }}
   schedule: {{ $job.schedule | quote }}
