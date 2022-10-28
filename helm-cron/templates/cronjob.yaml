@@ -26,7 +26,7 @@ spec:
             env:
 {{ toYaml . | indent 12 }}
             {{- end }}
-           {{- with $job.envFrom }}
+           {{if $job.appSecret.secretName }}
             envFrom:
             - secretRef:
               name: {{ $job.appSecret.secretName }}
