@@ -26,10 +26,10 @@ spec:
             env:
 {{ toYaml . | indent 12 }}
             {{- end }}
-
            {{- with $job.envFrom }}
             envFrom:
-{{ toYaml . | indent 12 }}
+            - secretRef:
+              name: {{ $job.appSecret.secretName }}
             {{- end }}
           restartPolicy: {{ $job.restartPolicy }}
 {{- end }}

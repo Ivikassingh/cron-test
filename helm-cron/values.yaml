@@ -9,4 +9,15 @@ jobs:
       secrets: gitlab-regsitry
     schedule: "* * * * *"
     restartPolicy: OnFailure
+    appSecret:
+    secretName: nmnotify-api-secret
+    useVault: "true"
+    vaultAddr: "vault.vault.svc.cluster.local:8200"
+    vaultSecretPath: ""
+    vaultSecretVersion: "1"
+    keycloakUsername: ""
+    keycloakPassword: ""
+    keycloakTokenUrl: "https://keycloak.azure-ephemeral-00.mavq.io/realms/vault/protocol/openid-connect/token"
+    keycloakClientId: "vault"
+    keycloakClientSecret: "NGuS64c3jnB5sKndxlQJp3TC598u7mSQ"
 
