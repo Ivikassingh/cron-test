@@ -22,14 +22,16 @@ spec:
           - image: "{{ $job.image.repository }}:{{ $job.image.tag }}"
             imagePullPolicy: {{ $job.image.imagePullPolicy }}
             name: {{ $job.name }}
+            {{if $job.appSecret.secretName }}
+            envFrom:
+            - secretRef:
+                name: {{ $job.appSecret.secretName }}
+            {{- end }}
             {{- with $job.env }}
             env:
 {{ toYaml . | indent 12 }}
             {{- end }}
            {{if $job.appSecret.secretName }}
-            envFrom:
-            - secretRef:
-              name: {{ $job.appSecret.secretName }}
-            {{- end }}
+         
           restartPolicy: {{ $job.restartPolicy }}
 {{- end }}
