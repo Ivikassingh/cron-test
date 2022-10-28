@@ -31,7 +31,5 @@ spec:
             env:
 {{ toYaml . | indent 12 }}
             {{- end }}
-           {{if $job.appSecret.secretName }}
-         
           restartPolicy: {{ $job.restartPolicy }}
 {{- end }}
